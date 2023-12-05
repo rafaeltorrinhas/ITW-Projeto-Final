@@ -21,8 +21,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="players.html"><i class="fa fa-soccer-ball-o text-warning"></i> Arenas</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-user-o text-primary"></i> Players</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="arenas.html"><i class="fa fa-soccer-ball-o text-warning"></i> Arenas</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="players.html"><i class="fa fa-user-o text-primary"></i> Players</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-flag-o text-danger"></i> Teams</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-map-marker text-success"></i> States</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-bookmark-o text-info "></i> Seasons</a></li>
@@ -35,6 +35,18 @@
     <div class="container">
         <div class="border-bottom py-2 mb-2">
             <h2 data-bind="text:displayName"></h2>
+            <div class="col-md-4">
+                <form>
+                    <input type="hidden" name="page" value="1" />
+                    <div class="input-group input-group-sm">
+                        <input class="form-control form-control-sm" type="text" name="q" placeholder="Insira o nome ou acrónimo" />
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default btn-sm" title="Filtrar"><i class="fa fa-search small"></i></button>
+                            <a href="players.html" class="btn btn-default btn-sm" title="Limpar o filtro"><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
         <!-- ko if:records().length > 0 -->
         <div class="row small">
@@ -84,7 +96,6 @@
                 <tr>
                     <td class="align-middle" data-bind="text:Name"></td>
                     <td class="align-middle" data-bind="text: moment(Birthdate).format('YYYY-MM-DD')"></td>
-
                     <td class="align-middle"><a class="nav-link" data-bind="text:DraftYear"></a></td>
                     <td class="align-middle"><a class="nav-link" data-bind="text:Height" title="Show Team Details"></a></td>
                     <td class="align-middle" data-bind="text: Weight"></td>

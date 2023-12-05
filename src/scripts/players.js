@@ -129,3 +129,30 @@ $(document).ready(function () {
 $(document).ajaxComplete(function (event, xhr, options) {
   $("#myModal").modal('hide');
 })
+
+function PlayerViewModel() {
+    var self = this;
+
+    // Observable for search query
+    self.searchQuery = ko.observable('');
+
+    // Function to filter players
+    self.filteredPlayers = ko.computed(function () {
+        var query = self.searchQuery().toLowerCase();
+
+        // Filter players based on the search query
+        return ko.utils.arrayFilter(self.records(), function (player) {
+            return player.Name.toLowerCase().indexOf(query) !== -1;
+        });
+    });
+    self.searchPlayers = function () {
+        // Trigger a manual update of the computed observable
+        self.filteredPlayers.valueHasMutated();
+    };
+}
+
+// Instantiate the ViewModel
+var viewModel = new PlayerViewModel();
+
+// Apply Knockout bindings
+ko.applyBindings(viewModel);
