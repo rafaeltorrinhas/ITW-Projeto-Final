@@ -8,7 +8,7 @@ var vm = function () {
   self.error = ko.observable('');
   self.passingMessage = ko.observable('');
   //--- Data Record
-  self.Id(data.Id);
+  self.Id = ko.observable('');
   self.Name = ko.observable('');
   self.Birthdate = ko.observable('');
   self.DraftYear = ko.observable('');
@@ -16,8 +16,8 @@ var vm = function () {
   self.Weight = ko.observable('');
   self.School = ko.observable('');
   self.Photo = ko.observable('');
-  self.CountryId = ko.observable('');
-  self.PositionId = ko.observable('');
+  self.CountryName = ko.observable('');
+  self.PositionName = ko.observable('');
   self.Opened = ko.observable('');
 
   //--- Page Events
@@ -35,8 +35,8 @@ var vm = function () {
           self.Weight(data.Weight);
           self.School(data.School);
           self.Photo(data.Photo);
-          self.CountryId(data.CountryId);
-          self.PositionId(data.PositionId);
+          self.CountryName(data.CountryName);
+          self.PositionName(data.PositionName);
       });
   };
 
