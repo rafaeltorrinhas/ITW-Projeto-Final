@@ -19,8 +19,6 @@ var vm = function () {
   self.CountryId = ko.observable('');
   self.PositionId = ko.observable('');
   self.Opened = ko.observable('');
-  self.view = ko.observable('list');
-}
 
   //--- Page Events
   self.activate = function (id) {
