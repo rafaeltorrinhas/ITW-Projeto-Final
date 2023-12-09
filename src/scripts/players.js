@@ -150,7 +150,6 @@ function PlayerViewModel() {
         self.filteredPlayers.valueHasMutated();
     };
 }
-
 // Instantiate the ViewModel
 var viewModel = new PlayerViewModel();
 
