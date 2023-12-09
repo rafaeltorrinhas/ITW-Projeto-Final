@@ -36,3 +36,20 @@
 li.page-item a {
     font-size: 0.85rem;
 }
+
+/* Add styles for gallery display mode */
+.gallery-display .table tbody {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gallery-display .table tbody tr {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.gallery-display .table tbody td {
+    width: 48%;
+    margin: 1%;
+}
+
