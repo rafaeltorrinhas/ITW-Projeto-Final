@@ -8,7 +8,7 @@ var vm = function () {
   self.error = ko.observable('');
   self.passingMessage = ko.observable('');
   //--- Data Record
-  self.Id(data.Id);
+  self.Id = ko.observable('');
   self.Name = ko.observable('');
   self.Birthdate = ko.observable('');
   self.DraftYear = ko.observable('');
