@@ -21,103 +21,88 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="arenas.html"><i class="fa fa-soccer-ball text-warning"></i> Arenas</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="arenas.html"><i class="fa fa-soccer-ball text-warning"></i> Arenas</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="players.html"><i class="fa fa-user text-primary"></i> Players</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="teams.html"><i class="fa fa-flag text-danger"></i> Teams</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-map-marker text-success"></i> States</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="teams.html"><i class="fa fa-flag text-danger"></i> Teams</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="states.html"><i class="fa fa-map-marker text-success"></i> States</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-bookmark text-info "></i> Seasons</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-magic" title="The party continues..."></i> &middot;&middot;&middot;</a></li>
                 </ul>
-                <ul class="navbar-nav justify-content-end" id="bd-theme">
-                    <input type="checkbox" class="custom-control-input" id="selector">
-                    <label class="custom-control-label" for="selector">
-                        <span class="bi bi-sun text-warning" id="lightIcon"></span>
-                        <span class="bi bi-moon text-dark" id="darkIcon"></span>
-                    </label>
-                </ul>
+                <ul class="navbar-nav justify-content-end" id="bd-theme"> <button style="width:50px"><label class="custom-control-label" for="selector"><i class="fas fa-sun" aria-hidden="true"></i>  <i class="fas fa-moon    "></i>
+                </label></button>
+                <input type="checkbox" class="custom-control-input visually-hidden" id="selector">
+            </ul>
             </div>
         </div>
     </nav>
-    <!-- Working Area -->
-    <div class="container">
-        <div class="border-bottom py-2 mb-2">
-            <h2 data-bind="text:displayName"></h2>
-        </div>
-        <!-- ko if:records().length > 0 -->
-        <div class="row small">
-            <p class=" col-4 mr-auto pt-2">
-                <span data-bind="html: 'Page: ' + currentPage() + ' of ' + totalPages()"></span><br />
-                <span data-bind="html: 'Games: '+ fromRecord() + '-' + toRecord() + ' of ' + totalRecords()"></span>
-            </p>
-            <div class="col-8 my-0 pt-3">
-                <ul class="pagination float-end">
-                    <!-- ko if: currentPage() > 5 && totalPages() > 10 -->
-                    <li class="page-item float-end"><a class="page-link" title="First Page" data-bind="attr: { href: './teams.html?page=' + '1',  rel:'prev'}">⇤</a></li>
-                    <li class="page-item float-end"><a class="page-link" title="Previous Page" data-bind="attr: { href: './teams.html?page=' + previousPage(),  rel:'prev'}">←</a></li>
-                    <!-- /ko -->
-                    <!-- ko foreach: pageArray()-->
-                    <!-- ko if:$data == $parent.currentPage() -->
-                    <li class="active page-item"><a class="page-link" data-bind="attr: { title:'Current Page ' + $data }, text: $data"></a></li>
-                    <!-- /ko -->
-                    <!-- ko if:$data != $parent.currentPage() -->
-                    <li class="page-item"><a class="page-link" data-bind="attr: { href: './teams.html?page=' + $data, title:'Goto Page ' + $data }, text:$data"></a></li>
-                    <!-- /ko -->
-                    <!-- /ko -->
-                    <!-- ko if: currentPage() < totalPages() - 4 && totalPages() > 9 -->
-                    <li class="page-item"><a class="page-link" title="Next Page" data-bind="attr: { href: './teams.html?page=' + nextPage(), rel:'next' }">→</a></li>
-                    <li class="page-item"><a class="page-link" title="Last Page" data-bind="attr: { href: './teams.html?page=' + totalPages() }">⇥</a></li>
-                    <!-- /ko -->
-                </ul>
+    <!-- Work Area-->
+<div class="container">
+    <div class="py-2 border-bottom mb-3">
+        <h2 data-bind="text:Name() +' [' + Id() + ']'" class="title"></h2>
+    </div>
+    <!-- ko if:Name().length > 0 -->
+    <div class="row">
+        <div class="col-md-8"> 
+            <div class="row g-2 info">
+                <div class="col-2"><strong>Acronym</strong></div><div class="col-10" data-bind="text: Name"></div>
+            </div>
+            <div class="row g-2 info">
+                <div class="col-2"><strong>Name</strong></div><div class="col-10" data-bind="text: Birthdate"></div>
+            </div>
+            <div class="row g-2 info">
+                <div class="col-2"><strong>Conference</strong></div><div class="col-10"><a class="nav-link" data-bind="text: DraftYear"></a></div>
+            </div>
+            <div class="row g-2 info">
+                <div class="col-2"><strong>Division</strong></div>
+                <div class="col-10"><a class="nav-link" data-bind="text: Height"></a></div>
+            </div>
+            <div class="row g-2 info">
+                <div class="col-2"><strong>State</strong></div><div class="col-10" data-bind="text: Weight"></div>
+            </div>
+            <div class="row g-2 info">
+                <div class="col-2"><strong>City</strong></div><div class="col-10" data-bind="text: School"></div>
+            </div>
+            <!-- ko if:Logo().length > 0 -->
+            <div class="row g-2" data-bind="visible: Logo() != '' && Logo() != null">
+                <div class="col-2"><strong>Logo</strong></div><div class="small col-10">
+                    <img class="img-thumbnail" data-bind="attr:{src: Logo}"><br />
+                    <i class="fa fa-link"></i> <a class="link-dark text-decoration-none" data-bind="attr: { href: Logo }, text: Logo" target="_blank"></a>
+                </div>
+            </div>
+            <!-- /ko -->
+            <div class="row g-2 info">
+                <div class="col-2"><strong>History</strong></div><div class="col-10" data-bind="text: CountryName"></div>
             </div>
         </div>
-        <!-- /ko -->
-
-        <table class="table table-striped table-sm small">
-            <thead class="table-secondary">
-                <tr>
-                    <th scope="col">Acronym</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Conference</th>
-                    <th scope="col">Division</th>
-                    <th scope="col">State</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Logo</th>
-                    <th scope="col" class="text-right"></th>
-                </tr>
-            </thead>
-            <tbody data-bind="foreach: records">
-                <tr>
-                    <td class="align-middle" data-bind="text: Acronym"></td>
-                    <td class="align-middle" data-bind="text: Name"></td>
-                    <td class="align-middle" data-bind="text: ConferenceName"></td>
-                    <td class="align-middle" data-bind="text: DivisionName"></td>
-                    <td class="align-middle" data-bind="text: State"></td>
-                    <td class="align-middle" data-bind="text: City"></td>
-                    <td class="align-middle" data-bind="html: '<img src=' + Logo + ' height=50px />'"></td>
-                    <td class="text-end">
-                        <a class="btn btn-default btn-light btn-xs" data-bind="attr: { href:'./teamDetails.html?id=' + Id }"><i class="fa fa-eye" title="Show details"></i></a>
-                        <button class="btn btn-default btn-xs"><i class="fa fa-heart" data-bind="attr : { 'id': 'favourite_' + Id }" title="Add to favorites"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        <img src="../images/NBA_logoH.png" height="30" /> Loading data...
-                    </h5>
-                </div>
-                <div class="modal-body text-center">
-                    <i class="fa fa-spin fa-3x fa-refresh"></i>
+        <div class="col-md-4">
+            <div class="row g-2" data-bind="visible: Logo() != '' && Logo() != null">
+                <div class="col-12 text-center">
+                    <img class="img-thumbnail" data-bind="attr:{src: Logo}">
+                    <br />
+                    <i class="fa fa-link"></i> <span class="link-dark text-decoration-none" data-bind="text: ' ' + Logo"></span>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End of Working Area -->
+    <!-- /ko -->
+    <a href="./teams.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    <img src="../images/NBA_logoH.png" height="30" /> Loading data...
+                </h5>
+            </div>
+            <div class="modal-body text-center">
+                <i class="fa fa-spin fa-3x fa-refresh"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Work Area -->
     <nav class="navbar navbar-light bg-light fixed-bottom">
         <div class="container small">
             <div class="navbar-text">&copy;  Introdução as Tecnologias Web - 2023/24</div>

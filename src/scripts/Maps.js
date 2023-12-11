@@ -10,7 +10,7 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    var composedUri = "http://192.168.160.58/Olympics/api/Games?page=1&pagesize=100";
+    var composedUri = "http://192.168.160.58/NBA/api/Games?page=1&pagesize=100";
     ajaxHelper(composedUri, 'GET')
         .done(function (data) {
             console.log(data);
