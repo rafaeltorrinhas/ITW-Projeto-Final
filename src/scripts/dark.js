@@ -9,7 +9,7 @@ $(document).ready(function () {
 
       // Additional elements to include in dark mode toggle
       $("table").toggleClass("table-dark"); // Apply dark mode to tables
-      $(".btn").toggleClass("btn-dark");
+      $(".btn").toggleClass("btn-dark");     // Apply dark mode to buttons
       $(".table thead").toggleClass("table-dark"); // Apply dark mode to table headers
   }
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
 
   $("#selector").change(function () {
       toggleDarkMode();
-
+z
   });
 });
 

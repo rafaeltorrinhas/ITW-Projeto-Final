@@ -6,14 +6,12 @@
 /* button default
 ---------------------------- */
 .btn-default {
-    color: #333;
-    background-color: #f8f9fa;
+    color: #ffffff;
     border-color: #ccc;
 }
 
     .btn-default:focus {
-        color: #333;
-        background-color: #e6e6e6;
+        color: #ffffff;
         border-color: #8c8c8c;
     }
 
