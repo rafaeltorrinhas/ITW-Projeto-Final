@@ -12,14 +12,9 @@ $(document).ready(function () {
       $(".btn").toggleClass("btn-dark");     // Apply dark mode to buttons
       $(".table thead").toggleClass("table-dark"); // Apply dark mode to table headers
   }
-
-
   toggleDarkMode();
-
-
   $("#selector").change(function () {
       toggleDarkMode();
-z
   });
 });
 

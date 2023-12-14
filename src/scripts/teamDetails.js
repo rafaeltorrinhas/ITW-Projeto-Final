@@ -3,7 +3,7 @@ var vm = function () {
   console.log('ViewModel initiated...');
   //---Variáveis locais
   var self = this;
-  self.baseUri = ko.observable('http://192.168.160.58/NBA/API/Teams');
+  self.baseUri = ko.observable('http://192.168.160.58/NBA/API/Teams/');
   self.displayName = 'NBA Team Details';
   self.error = ko.observable('');
   self.passingMessage = ko.observable('');
@@ -20,9 +20,9 @@ var vm = function () {
   self.Opened = ko.observable('');
 
   //--- Page Events
-  self.activate = function (id) {
+  self.activate = function (id,acronym) {
       console.log('CALL: getTeam...');
-      var composedUri = self.baseUri() + id;
+      var composedUri = self.baseUri() + id + '?acronym=' + acronym;
       ajaxHelper(composedUri, 'GET').done(function (data) {
           console.log(data);
           hideLoading();
@@ -85,15 +85,15 @@ var vm = function () {
   //--- start ....
   showLoading();
   var pg = getUrlParameter('id');
+  var ac = getUrlParameter('acronym');
   console.log(pg);
   if (pg == undefined)
       self.activate(1);
   else {
-      self.activate(pg);
+      self.activate(pg,ac);
   }
   console.log("VM initialized!");
-};
-
+}
 $(document).ready(function () {
   console.log("document.ready!");
   ko.applyBindings(new vm());
