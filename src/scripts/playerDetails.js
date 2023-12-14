@@ -29,7 +29,7 @@ var vm = function () {
           hideLoading();
           self.Id(data.Id);
           self.Name(data.Name);
-          self.Birthdate(data.Birthdate);
+          self.Birthdate(data.Birthdate.substring(0,10));
           self.DraftYear(data.DraftYear);
           self.Height(data.Height);
           self.Weight(data.Weight);

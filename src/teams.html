@@ -24,17 +24,14 @@
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="arenas.html"><i class="fa fa-soccer-ball text-warning"></i> Arenas</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="players.html"><i class="fa fa-user text-primary"></i> Players</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="teams.html"><i class="fa fa-flag text-danger"></i> Teams</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-map-marker text-success"></i> States</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="states.html"><i class="fa fa-map-marker text-success"></i> States</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-bookmark text-info "></i> Seasons</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-magic" title="The party continues..."></i> &middot;&middot;&middot;</a></li>
                 </ul>
-                <ul class="navbar-nav justify-content-end" id="bd-theme">
-                    <input type="checkbox" class="custom-control-input" id="selector">
-                    <label class="custom-control-label" for="selector">
-                        <span class="bi bi-sun text-warning" id="lightIcon"></span>
-                        <span class="bi bi-moon text-dark" id="darkIcon"></span>
-                    </label>
-                </ul>
+                <ul class="navbar-nav justify-content-end" id="bd-theme"> <button style="width:50px"><label class="custom-control-label" for="selector"><i class="fas fa-sun" aria-hidden="true"></i>  <i class="fas fa-moon    "></i>
+                </label></button>
+                <input type="checkbox" class="custom-control-input visually-hidden" id="selector">
+            </ul>
             </div>
         </div>
     </nav>
@@ -88,15 +85,15 @@
             <tbody data-bind="foreach: records">
                 <tr>
                     <td class="align-middle" data-bind="text: Acronym"></td>
-                    <td class="align-middle" data-bind="text: Name"></td>
+                    <td class="align-middle" data-bind="text:   "></td>
                     <td class="align-middle" data-bind="text: ConferenceName"></td>
                     <td class="align-middle" data-bind="text: DivisionName"></td>
                     <td class="align-middle" data-bind="text: StateName"></td>
                     <td class="align-middle" data-bind="text: City"></td>
                     <td class="align-middle" data-bind="html: '<img src=' + Logo + ' height=50px />'"></td>
                     <td class="text-end">
-                        <a class="btn btn-default btn-light btn-xs" data-bind="attr: { href:'./teamDetails.html?id=' + Id }"><i class="fa fa-eye" title="Show details"></i></a>
-                        <button class="btn btn-default btn-xs"><i class="fa fa-heart" data-bind="attr : { 'id': 'favourite_' + Id }" title="Add to favorites"></i></button>
+                        <a class="btn btn-dark btn-xs" data-bind="attr: { href:'./teamDetails.html?id=' + Id }"><i class="fa fa-eye" title="Show details"></i></a>
+                        <button class="btn btn-dark btn-xs"><i class="fa fa-heart" data-bind="attr : { 'id': 'favourite_' + Id }" title="Add to favorites"></i></button>
                     </td>
                 </tr>
             </tbody>
