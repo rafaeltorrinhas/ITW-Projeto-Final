@@ -46,12 +46,17 @@
     </nav>
     <!-- Work Area-->
 <div class="container">
-    <div class="py-2 border-bottom mb-3">
-        <h2 data-bind="text:Name() +' [' + Id() + ']'" class="title"></h2>
+    <div class="row">
+        <div class="py-2 mb-3 col-md-8">
+            <h2 data-bind="text:Name() +' [' + Id() + ']'" class="title"></h2>
+        </div>
+        <div class="col-md-4">   
+            <a href="./players.html" class="btn btn-sm small"><i class="fa fa-list"></i> Back to List</a>
+        </div>
     </div>
+    <hr>
     <!-- ko if:Name().length > 0 -->
     <div class="row">
-         
         <div class="col-md-8"> 
             <div class="row g-2 info">
                 <div class="col-2"><strong>Name</strong></div><div class="col-10" data-bind="text: Name"></div>
@@ -93,8 +98,28 @@
         </div>
     </div>
     <!-- /ko -->
-    <a href="./players.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
-</div>
+    <hr>
+    <div class="info center">
+        <div style="font-size: 30px;"><b>BIOGRAPHY</b></div>
+        <p></p>
+        <div data-bind="text: Biography"></div>
+     </div>
+    <hr>
+    <div class="row center">
+        <div class="col-md-6">
+            <h2><b class="info">Teams</b></h2>
+            <!-- ko foreach: Teams -->
+            <a class="nav-link" data-bind="text: Name"></a>
+            <!-- /ko -->
+        </div>
+        <div class="col-md-6">
+            <h2><b class="info">Seasons</b></h2>
+            <!-- ko foreach: Seasons -->
+            <a class="nav-link" data-bind="text: Season"></a>
+            <!-- /ko -->
+        </div> 
+    </div>
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

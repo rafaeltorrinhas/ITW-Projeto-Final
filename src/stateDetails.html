@@ -46,9 +46,16 @@
     </nav>
     <!-- Work Area-->
     <div class="container">
-        <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'" class="title"></h2>
-        </div>
+        
+            <div class="row">
+                <div class="py-2 mb-3 col-md-8">
+                    <h2 data-bind="text:Name() +' [' + Id() + ']'" class="title"></h2>
+                </div>
+                <div class="col-md-4">   
+                    <a href="./states.html" class="btn btn-sm small"><i class="fa fa-list"></i> Back to List</a>
+                </div>
+            </div>
+            <hr>
         <div class="row">
             <div class="col-md-8"> 
                 <div class="row g-2 info">
@@ -57,28 +64,32 @@
                 <div class="row g-2 info">
                     <div class="col-2"><strong>Name</strong></div><div class="col-10" data-bind="text: Name"></div>
                 </div>
-                <div class="row g-2 info">
-                    <div class="col-2"><strong>Teams</strong></div><div class="col-10" data-bind="text: Teams"></div>
-                </div>
-                <div class="row g-2 info">
-                    <div class="col-2"><strong>Arenas</strong></div>
-                    <div class="col-10" data-bind:="text: Arenas"></div>
-                </div>
             </div>
             <div class="col-md-4">
                 <div class="row g-2" data-bind="visible: Flag() != '' && Flag() != null">
                     <div class="col-12 text-center">
                         <img class="img-thumbnail" data-bind="attr:{src: Flag}">
                         <br />
-                        <i class="fa fa-link"></i> <span class="link-dark text-decoration-none" data-bind="text: ' ' + Photo"></span>
+                        <i class="fa fa-link"></i> <span class="link-dark text-decoration-none" data-bind="text: ' ' + Flag"></span>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- ko if:Opened().length > 0 -->
-        <a href="./states.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
-    </div>
-    <!-- /ko -->
+        <hr>
+            <div class="row center">
+                    <div class="col-md-6">
+                        <h2><b class="info">Teams</b></h2>
+                        <!-- ko foreach: Teams -->
+                        <a class="nav-link" data-bind="text: Name"></a>
+                        <!-- /ko -->
+                    </div>
+                    <div class="col-md-6">
+                        <h2><b class="info">Arenas</b></h2>
+                        <!-- ko foreach: Arenas -->
+                        <a class="nav-link" data-bind="text: Name"></a>
+                        <!-- /ko -->
+                    </div> 
+                </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

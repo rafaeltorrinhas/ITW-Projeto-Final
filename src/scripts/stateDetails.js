@@ -11,8 +11,8 @@ var vm = function () {
     self.Id = ko.observable('');
     self.Name = ko.observable('');
     self.Flag = ko.observable('');
-    self.Teams = ko.observable('');
-    self.Arenas = ko.observable('');
+    self.Teams = ko.observableArray([]);
+    self.Arenas = ko.observableArray([]);
     self.Opened = ko.observable('');
   
     //--- Page Events

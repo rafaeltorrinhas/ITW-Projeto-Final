@@ -6,6 +6,9 @@ $(document).ready(function () {
       $(".custom-control-label").toggleClass("text-white");
       $("h1, h5").toggleClass("text-white");
       $("#lightIcon, #darkIcon").toggle();
+      $("button").toggleClass("border-light");
+      $("button").toggleClass("bg-dark");
+      $("button").toggleClass("text-light");
 
       // Additional elements to include in dark mode toggle
       $("table").toggleClass("table-dark"); // Apply dark mode to tables

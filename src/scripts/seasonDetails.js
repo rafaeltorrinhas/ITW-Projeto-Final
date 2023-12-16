@@ -3,46 +3,28 @@ var vm = function () {
   console.log('ViewModel initiated...');
   //---Variáveis locais
   var self = this;
-  self.baseUri = ko.observable('http://192.168.160.58/NBA/API/Players/');
-  self.displayName = 'NBA Player Details';
+  self.baseUri = ko.observable('http://192.168.160.58/NBA/API/Seasons/');
+  self.displayName = 'NBA Season Details';
   self.error = ko.observable('');
   self.passingMessage = ko.observable('');
   //--- Data Record
   self.Id = ko.observable('');
-  self.Name = ko.observable('');
-  self.Birthdate = ko.observable('');
-  self.DraftYear = ko.observable('');
-  self.Height = ko.observable('');
-  self.Weight = ko.observable('');
-  self.School = ko.observable('');
-  self.Photo = ko.observable('');
-  self.CountryId = ko.observable('');
-  self.PositionId = ko.observable('');
-  self.Biography = ko.observable('');
-  self.Seasons = ko.observableArray([]);
-  self.Teams = ko.observableArray([]);
+  self.Season = ko.observable('');
+  self.Teams = ko.observable('');
+  self.Players = ko.observable('');
   self.Opened = ko.observable('');
 
   //--- Page Events
   self.activate = function (id) {
-      console.log('CALL: getPlayer...');
+      console.log('CALL: getSeason...');
       var composedUri = self.baseUri() + id;
       ajaxHelper(composedUri, 'GET').done(function (data) {
           console.log(data);
           hideLoading();
           self.Id(data.Id);
-          self.Name(data.Name);
-          self.Birthdate(data.Birthdate.substring(0,10));
-          self.DraftYear(data.DraftYear);
-          self.Height(data.Height);
-          self.Weight(data.Weight);
-          self.School(data.School);
-          self.Photo(data.Photo);
-          self.CountryId(data.CountryId);
-          self.Biography(data.Biography);
+          self.Season(data.Season);
           self.Teams(data.Teams);
-          self.Seasons(data.Seasons);
-          self.PositionId(data.PositionId);
+          self.Players(data.Players);
       });
   };
 
