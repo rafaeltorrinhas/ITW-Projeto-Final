@@ -1,6 +1,7 @@
 ﻿// ViewModel KnockOut
 var vm = function () {
     console.log('ViewModel initiated...');
+
     //---Variáveis locais
     var self = this;
     self.baseUri = ko.observable('http://192.168.160.58/NBA/API/Arenas');
@@ -42,25 +43,61 @@ var vm = function () {
         return list;
     };
 
-    //--- Page Events
-    self.activate = function (id) {
-        console.log('CALL: getArenas...');
-        var composedUri = self.baseUri() + "?page=" + id + "&pageSize=" + self.pagesize();
-        ajaxHelper(composedUri, 'GET').done(function (data) {
+    //--- New properties and methods for search
+    self.searchTerm = ko.observable('');
+
+    self.search = function () {
+        console.log('CALL: searchArenas...');
+
+        // Construct the search URI with the current search term
+        var searchUri = self.baseUri() + '/Search?q=' + encodeURIComponent(self.searchTerm());
+
+        // Perform an AJAX call to get search results
+        ajaxHelper(searchUri, 'GET').done(function (data) {
             console.log(data);
             hideLoading();
-            self.records(data.Records);
-            self.currentPage(data.CurrentPage);
-            self.hasNext(data.HasNext);
-            self.hasPrevious(data.HasPrevious);
-            self.pagesize(data.PageSize)
-            self.totalPages(data.TotalPages);
-            self.totalRecords(data.TotalRecords);
-            //self.SetFavourites();
+
+            // Update the records with the search results
+            self.records(data);
+            self.currentPage(1); // Reset current page to 1
+            self.totalPages(1); // Reset total pages to 1
+            self.totalRecords(data.length);
+            self.hasPrevious(false); // Disable previous button for search results
+            self.hasNext(false); // Disable next button for search results
         });
     };
 
-    //--- Internal functions
+    //--- Page Events
+    self.activate = function (id) {
+    console.log('CALL: getArenas...');
+
+    // Construct the URI with or without the page parameter based on the search term
+    var composedUri = self.baseUri();
+    if (self.searchTerm()) {
+        // If a search term is specified, include it in the URI
+        composedUri += '/Search?q=' + encodeURIComponent(self.searchTerm());
+    } else {
+        // If no search term is specified, include the page parameter in the URI
+        composedUri += '?page=' + id + '&pageSize=' + self.pagesize();
+    }
+
+    // Perform an AJAX call to get records
+    ajaxHelper(composedUri, 'GET').done(function (data) {
+        console.log(data);
+        hideLoading();
+
+        // Update the records with the results
+        self.records(data.Records);
+        self.currentPage(data.CurrentPage);
+        self.hasNext(data.HasNext);
+        self.hasPrevious(data.HasPrevious);
+        self.pagesize(data.PageSize);
+        self.totalPages(data.TotalPages);
+        self.totalRecords(data.TotalRecords);
+    });
+};
+
+        //--- Internal functions
     function ajaxHelper(uri, method, data) {
         self.error(''); // Clear error message
         return $.ajax({
@@ -68,7 +105,7 @@ var vm = function () {
             url: uri,
             dataType: 'json',
             contentType: 'application/json',
-            data: data ? JSON.stringify(data) : null,
+            data: data,
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log("AJAX Call[" + uri + "] Fail...");
                 hideLoading();
@@ -123,7 +160,26 @@ var vm = function () {
 
 $(document).ready(function () {
     console.log("ready!");
-    ko.applyBindings(new vm());
+
+    var viewModel = new vm();
+    ko.applyBindings(viewModel);
+
+    // Add event listener for the input event on the search input field
+    $('#searchInput').on('input', function () {
+        // Trigger the handleSearchInputChange function when the input changes
+        viewModel.handleSearchInputChange();
+    });
+
+    // Add event listener for the keypress event on the search input field
+    $('#searchInput').on('keypress', function (e) {
+        // Check if the pressed key is Enter (key code 13)
+        if (e.which === 13) {
+            // Prevent the default form submission behavior
+            e.preventDefault();
+            // Trigger the search function when Enter key is pressed
+            viewModel.search();
+        }
+    });
 });
 
 $(document).ajaxComplete(function (event, xhr, options) {
