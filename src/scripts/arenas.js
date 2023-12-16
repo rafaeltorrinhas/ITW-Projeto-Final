@@ -47,16 +47,25 @@ var vm = function () {
     self.searchTerm = ko.observable('');
 
     self.search = function () {
+        // Trim the search term to remove leading and trailing spaces
+        var trimmedSearchTerm = self.searchTerm().trim();
+    
+        // If the search term is empty after trimming, show all arenas and return
+        if (!trimmedSearchTerm) {
+            self.activate(1);
+            return;
+        }
+    
         console.log('CALL: searchArenas...');
-
+    
         // Construct the search URI with the current search term
-        var searchUri = self.baseUri() + '/Search?q=' + encodeURIComponent(self.searchTerm());
-
+        var searchUri = self.baseUri() + '/Search?q=' + encodeURIComponent(trimmedSearchTerm);
+    
         // Perform an AJAX call to get search results
         ajaxHelper(searchUri, 'GET').done(function (data) {
             console.log(data);
             hideLoading();
-
+    
             // Update the records with the search results
             self.records(data);
             self.currentPage(1); // Reset current page to 1
@@ -66,6 +75,8 @@ var vm = function () {
             self.hasNext(false); // Disable next button for search results
         });
     };
+    
+    
 
     //--- Page Events
     self.activate = function (id) {
@@ -185,3 +196,4 @@ $(document).ready(function () {
 $(document).ajaxComplete(function (event, xhr, options) {
     $("#myModal").modal('hide');
 })
+
