@@ -63,7 +63,7 @@
                 >
               </li>
             </ul>
-            <form class="d-flex" style="margin-right: 1.5rem;">
+            <form class="d-flex" style="margin-right: 1.5rem;" data-bs-theme="light">
                 <input
                     class="form-control me-2"
                     type="text"
@@ -108,7 +108,7 @@
                 <span data-bind="html: 'Players: '+ fromRecord() + '-' + toRecord() + ' of ' + totalRecords()"></span>
             </p>
             <div class="col-8 my-0 pt-3">
-                <ul class="pagination float-end">
+                <ul class="pagination float-end" data-bs-theme="dark">
                     <!-- ko if: currentPage() > 5 && totalPages() > 10 -->
                     <li class="page-item float-end"><a class="page-link" title="First Page" data-bind="attr: { href: './players.html?page=' + '1',  rel:'prev'}">⇤</a></li>
                     <li class="page-item float-end"><a class="page-link" title="Previous Page" data-bind="attr: { href: './players.html?page=' + previousPage(),  rel:'prev'}">←</a></li>
@@ -140,7 +140,7 @@
                     <th scope="col">School</th>
                     <th scope="col">Country</th>
                     <th scope="col">Position</th>
-                    <th scope="col">Photo</th>
+                    <th scope="col" style="text-align: center;">Photo</th>
                     <th scope="col" class="text-right"></th>
                 </tr>
             </thead>
@@ -154,7 +154,7 @@
                     <td class="align-middle" data-bind="text: School"></td>
                     <td class="align-middle" data-bind="text: CountryName"></td>
                     <td class="align-middle" data-bind="text: PositionName"></td>
-                    <td class="align-middle" data-bind="html: '<img src=' + Photo + ' height=50px />'"></td>
+                    <td class="align-middle" style="text-align: center;" data-bind="html: '<img src=' + Photo + ' height=50px/>'"></td>
                     <td class="text-end">
                         <a class="btn btn-dark btn-xs" data-bind="attr: { href:'./playerDetails.html?id=' + Id }"><i class="fa fa-eye" title="Show details"></i></a>
                         <a class="btn btn-dark btn-xs"><i class="fa fa-heart" data-bind="attr : { 'id': 'favourite_' + Id }" title="Add to favorites"></i></a>

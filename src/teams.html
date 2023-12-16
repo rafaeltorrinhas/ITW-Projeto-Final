@@ -28,7 +28,7 @@
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="seasons.html"><i class="fa fa-bookmark text-info "></i> Seasons</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="favorites.html"><i class="fa fa-magic" title="The party continues..."></i> &middot;&middot;&middot;</a></li>
                 </ul>
-                <form class="d-flex" style="margin-right: 1.5rem;">
+                <form class="d-flex" style="margin-right: 1.5rem;" data-bs-theme="light">
                     <input
                         class="form-control me-2"
                         type="text"
@@ -47,7 +47,7 @@
                 <ul class="navbar-nav justify-content-end" id="bd-theme"> <button style="width:50px"><label class="custom-control-label" for="selector"><i class="fas fa-sun" aria-hidden="true"></i>  <i class="fas fa-moon    "></i>
                 </label></button>
                 <input type="checkbox" class="custom-control-input visually-hidden" id="selector">
-            </ul>
+                </ul>
             </div>
         </div>
     </nav>
@@ -63,7 +63,7 @@
                 <span data-bind="html: 'Teams: '+ fromRecord() + '-' + toRecord() + ' of ' + totalRecords()"></span>
             </p>
             <div class="col-8 my-0 pt-3">
-                <ul class="pagination float-end">
+                <ul class="pagination float-end" data-bs-theme="dark">
                     <!-- ko if: currentPage() > 5 && totalPages() > 10 -->
                     <li class="page-item float-end"><a class="page-link" title="First Page" data-bind="attr: { href: './teams.html?page=' + '1',  rel:'prev'}">⇤</a></li>
                     <li class="page-item float-end"><a class="page-link" title="Previous Page" data-bind="attr: { href: './teams.html?page=' + previousPage(),  rel:'prev'}">←</a></li>

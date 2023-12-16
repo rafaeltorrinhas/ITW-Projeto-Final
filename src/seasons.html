@@ -63,6 +63,22 @@
                 >
               </li>
             </ul>
+            <form class="d-flex" style="margin-right: 1.5rem;" data-bs-theme="light">
+              <input
+                class="form-control me-2"
+                type="text"
+                id="searchInput"
+                placeholder="Search Seasons..."
+                data-bind="value: searchTerm, valueUpdate: 'afterkeydown'"
+              />
+              <button
+                class="btn btn-outline-success"
+                type="button"
+                data-bind="click: search"
+              >
+                Search
+              </button>
+            </form>
             <ul class="navbar-nav justify-content-end" id="bd-theme">
               <button style="width: 50px">
                 <label class="custom-control-label" for="selector"
@@ -92,7 +108,7 @@
                 <span data-bind="html: 'Seasons: '+ fromRecord() + '-' + toRecord() + ' of ' + totalRecords()"></span>
             </p>
             <div class="col-8 my-0 pt-3">
-                <ul class="pagination float-end">
+                <ul class="pagination float-end" data-bs-theme="dark">
                     <!-- ko if: currentPage() > 5 && totalPages() > 10 -->
                     <li class="page-item float-end"><a class="page-link" title="First Page" data-bind="attr: { href: './seasons.html?page=' + '1',  rel:'prev'}">⇤</a></li>
                     <li class="page-item float-end"><a class="page-link" title="Previous Page" data-bind="attr: { href: './seasons.html?page=' + previousPage(),  rel:'prev'}">←</a></li>
