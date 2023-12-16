@@ -33,7 +33,7 @@
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="arenas.html"><i class="fa fa-soccer-ball text-warning"></i> Arenas</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="players.html"><i class="fa fa-user text-primary"></i> Players</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="teams.html"><i class="fa fa-flag text-danger"></i> Teams</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="states.html"><i class="fa fa-map-marker text-success"></i> States</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="states.html"><i class="fa fa-location-dot text-success"></i> States</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-bookmark text-info "></i> Seasons</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="xxx.html"><i class="fa fa-magic" title="The party continues..."></i> &middot;&middot;&middot;</a></li>
                 </ul>
@@ -47,32 +47,38 @@
     <!-- Work Area-->
     <div class="container">
         <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'"></h2>
+            <h2 data-bind="text:Name() +' [' + Id() + ']'" class="title"></h2>
         </div>
-        <!-- ko if:Name().length > 0 -->
-        <div class="row border-bottom g-2">
-            <div class="col-2">Id</div><div class="col-10" data-bind="text: Id"></div>
-        </div>
-        <div class="row border-bottom g-2">
-            <div class="col-2">Name</div><div class="col-10" data-bind="text: Name"></div>
-        </div>
-        <div class="row border-bottom g-2">
-            <div class="col-2">Teams</div><div class="col-10" data-bind="text: Teams"></div>
-        </div>
-        
-        <div class="row border-bottom g-2">
-            <div class="col-2">Arenas</div><div class="col-10" data-bind="text: Arenas"></div>
-        </div>
-        <!-- ko if:Opened().length > 0 -->
-        <div class="row border-bottom g-2" data-bind="visible: Flag() != '' && Flag() != null">
-            <div class="col-2">Flag</div><div class="small col-10">
-                <img class="img-thumbnail" data-bind="attr:{src: Flag}"><br />
-                <i class="fa fa-link"></i> [<a class="link-dark text-decoration-none" data-bind="attr: { href: Flag }, text: Flag" target="_blank"></a>]
+        <div class="row">
+            <div class="col-md-8"> 
+                <div class="row g-2 info">
+                    <div class="col-2"><strong>Id</strong></div><div class="col-10" data-bind="text: Id"></div>
+                </div>
+                <div class="row g-2 info">
+                    <div class="col-2"><strong>Name</strong></div><div class="col-10" data-bind="text: Name"></div>
+                </div>
+                <div class="row g-2 info">
+                    <div class="col-2"><strong>Teams</strong></div><div class="col-10" data-bind="text: Teams"></div>
+                </div>
+                <div class="row g-2 info">
+                    <div class="col-2"><strong>Arenas</strong></div>
+                    <div class="col-10" data-bind:="text: Arenas"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row g-2" data-bind="visible: Flag() != '' && Flag() != null">
+                    <div class="col-12 text-center">
+                        <img class="img-thumbnail" data-bind="attr:{src: Flag}">
+                        <br />
+                        <i class="fa fa-link"></i> <span class="link-dark text-decoration-none" data-bind="text: ' ' + Photo"></span>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- /ko --><!-- /ko -->
+        <!-- ko if:Opened().length > 0 -->
         <a href="./states.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
     </div>
+    <!-- /ko -->
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -103,5 +109,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./scripts/stateDetails.js"></script>
     <script src="./scripts/dark.js"></script>
-</body>
-</html>
+    </body>
+    </html>

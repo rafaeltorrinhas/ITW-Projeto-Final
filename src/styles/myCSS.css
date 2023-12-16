@@ -50,3 +50,9 @@
 .fa-sun {
 	color: black;
 }
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
