@@ -63,6 +63,22 @@
                 >
               </li>
             </ul>
+            <form class="d-flex" style="margin-right: 1.5rem;">
+                <input
+                    class="form-control me-2"
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search Players..."
+                    data-bind="value: searchTerm, valueUpdate: 'afterkeydown'"
+                />
+                <button
+                    class="btn btn-outline-success"
+                    type="button"
+                    data-bind="click: search"
+                >
+                    Search
+                </button>
+            </form>            
             <ul class="navbar-nav justify-content-end" id="bd-theme">
               <button style="width: 50px">
                 <label class="custom-control-label" for="selector"

@@ -75,8 +75,8 @@ var vm = function () {
             self.hasNext(false); // Disable next button for search results
         });
     };
-    
-    
+
+
 
     //--- Page Events
     self.activate = function (id) {
@@ -136,6 +136,7 @@ var vm = function () {
             keyboard: false
         });
     }
+    
     function hideLoading() {
         $('#myModal').on('shown.bs.modal', function (e) {
             $("#myModal").modal('hide');
