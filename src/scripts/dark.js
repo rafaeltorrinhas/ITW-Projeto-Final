@@ -14,7 +14,7 @@ $(document).ready(function () {
       $("table").toggleClass("table-dark"); // Apply dark mode to tables
       $(".btn").toggleClass("btn-dark");
       $(".table thead").toggleClass("table-dark"); // Apply dark mode to table headers
-      $(".light").toggleClass(".dark"); // Apply dark mode to page buttons
+
       
       // Toggle data-bs-theme attribute for Bootstrap components
       $("[data-bs-theme]").each(function () {
