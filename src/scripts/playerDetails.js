@@ -18,6 +18,9 @@ var vm = function () {
   self.Photo = ko.observable('');
   self.CountryId = ko.observable('');
   self.PositionId = ko.observable('');
+  self.Biography = ko.observable('');
+  self.Seasons = ko.observableArray([]);
+  self.Teams = ko.observableArray([]);
   self.Opened = ko.observable('');
 
   //--- Page Events
@@ -36,6 +39,9 @@ var vm = function () {
           self.School(data.School);
           self.Photo(data.Photo);
           self.CountryId(data.CountryId);
+          self.Biography(data.Biography);
+          self.Teams(data.Teams);
+          self.Seasons(data.Seasons);
           self.PositionId(data.PositionId);
       });
   };

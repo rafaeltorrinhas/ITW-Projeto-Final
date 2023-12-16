@@ -46,9 +46,16 @@
     </nav>
     <!-- Work Area-->
     <div class="container">
-        <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'" class="title"></h2>
-        </div>
+        
+            <div class="row">
+                <div class="py-2 mb-3 col-md-8">
+                    <h2 data-bind="text:Name() +' [' + Id() + ']'" class="title"></h2>
+                </div>
+                <div class="col-md-4">   
+                    <a href="./states.html" class="btn btn-sm small"><i class="fa fa-list"></i> Back to List</a>
+                </div>
+            </div>
+            <hr>
         <div class="row">
             <div class="col-md-8"> 
                 <div class="row g-2 info">
@@ -83,8 +90,6 @@
                         <!-- /ko -->
                     </div> 
                 </div>
-        <a href="./states.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
-    </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
