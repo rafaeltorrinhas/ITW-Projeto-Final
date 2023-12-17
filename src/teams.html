@@ -26,7 +26,7 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="teams.html"><i class="fa fa-flag text-danger"></i> Teams</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="states.html"><i class="fa fa-location-dot text-success"></i> States</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="seasons.html"><i class="fa fa-bookmark text-info "></i> Seasons</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="favorites.html"><i class="fa fa-heart text-danger" title="The party continues..."></i></a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="statistics.html"><i class="fas fa-chart-column"></i> Statistics</a></li>
                 </ul>
                 <form class="d-flex" style="margin-right: 1.5rem;" data-bs-theme="light">
                     <input
@@ -55,6 +55,13 @@
     <div class="container">
         <div class="border-bottom py-2 mb-2">
             <h2 data-bind="text:displayName"></h2>
+            <a
+                    class="btn btn-outline-danger"
+                    type="button"
+                     href="favoritesT.html"
+                >
+                    <i class="fa fa-heart" aria-hidden="true">  </i> Favorites
+            </a>
         </div>
         <!-- ko if:records().length > 0 -->
         <div class="row small">
@@ -109,7 +116,7 @@
                     <td class="align-middle" data-bind="html: '<img src=' + Logo + ' height=50px />'" style="text-align: center;"></a></td>
                     <td class="text-end">
                         <a class="btn btn-dark btn-xs" data-bind="attr: { href:'./teamDetails.html?id=' + Id + '&acronym=' + Acronym }"><i class="fa fa-eye" title="Show details"></i></a>
-                        <button class="btn btn-dark btn-xs"><i class="fa fa-heart" data-bind="attr : { 'id': 'favourite_' + Id }" title="Add to favorites"></i></button>
+                        <a class="btn btn-dark btn-xs"><i class="fa fa-heart" data-bind="attr:{id:'fav_'+Id}, click: function (data) {$root.favoriteTeam(Id)}" title="Add to favorites"></i></a>
                     </td>
                 </tr>
             </tbody>

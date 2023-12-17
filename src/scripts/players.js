@@ -43,6 +43,42 @@ var vm = function () {
         return list;
     };
 
+    self.favoritePlayer = function (id) {
+        console.log('favourite click!')
+        $('#fav_'+id).addClass('text-danger')
+        if (JSON.parse(window.localStorage.getItem('favPlayers0')) == null) {
+            console.log('no favPlayers in local storage, lets create it');
+            window.localStorage.setItem('favPlayers0', '[]');
+            var a = JSON.parse(window.localStorage.getItem('favPlayers0'));
+            for(var i=0;i<self.records().length;i++){
+                if(self.records()[i].Id == id){
+                b = a.concat(self.records()[i]);
+            }}
+            window.localStorage.setItem('favPlayers0', JSON.stringify(b));
+        } else {
+            var c = JSON.parse(window.localStorage.getItem('favPlayers0'))
+            for (var i = 0; i < c.length; i++) {
+                if (id == c[i].Id) {
+                    c.splice(i, 1); // remove the item at index i
+                    window.localStorage.setItem('favPlayers0', JSON.stringify(c)); // update the local storage
+                    console.log('Player unfavourited')
+                    console.log(JSON.parse(window.localStorage.getItem('favPlayers0')))
+                    $('#fav_'+id).removeClass('text-danger')
+                    return false
+                }
+            }
+            var a = JSON.parse(window.localStorage.getItem('favPlayers0'));
+            for(var i=0;i<self.records().length;i++){
+                if(self.records()[i].Id == id){
+                b = a.concat(self.records()[i]);
+            }}
+            window.localStorage.setItem('favPlayers0', JSON.stringify(b));
+            console.log('Player not favourited, added to favourites')
+        }
+        console.log(JSON.parse(window.localStorage.getItem('favPlayers0')))
+    }
+
+
     //--- New properties and methods for search
     self.searchTerm = ko.observable('');
 
@@ -68,7 +104,7 @@ var vm = function () {
     
             // Update the records with the search results
             self.records(data);
-            self.currentPage(1); // Reset current page to 1
+            self.currentPage(1); // Reset current page to 1 
             self.totalPages(1); // Reset total pages to 1
             self.totalRecords(data.length);
             self.hasPrevious(false); // Disable previous button for search results
@@ -105,7 +141,15 @@ var vm = function () {
         self.pagesize(data.PageSize);
         self.totalPages(data.TotalPages);
         self.totalRecords(data.TotalRecords);
+        a = JSON.parse(window.localStorage.getItem('favPlayers0'));
+            for (var i = 0; i < a.length; i++) {
+                for(var j=0;j<self.records().length;j++){
+                if(a[i].Id==self.records()[j].Id){
+                $('#fav_'+a[i].Id).addClass('text-danger')
+                };
+            }}
     });
+
 };
 
         //--- Internal functions

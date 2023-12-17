@@ -1,4 +1,4 @@
-﻿const composedUri = "http://192.168.160.58/Olympics/api/statistics/games_athletes";
+﻿const composedUri = "http://192.168.160.58/NBA/api/statistics/NumPlayersBySeason";
 
 $('document').ready(function () {
     const ctx = document.getElementById('myChart');
@@ -8,8 +8,8 @@ $('document').ready(function () {
         var myLabels = [];
         var myData = [];
         $.each(stats, function (index, item) {
-            myLabels.push(item.Name);
-            myData.push(item.Counter);
+            myLabels.push(item.Season);
+            myData.push(item.Players);
         })
 
 
@@ -20,7 +20,7 @@ $('document').ready(function () {
             data: {
                 labels: myLabels,
                 datasets: [{
-                    label: 'N.º de Atletas',
+                    label: '# Players per season',
                     data: myData,
                     borderWidth: 1
                 }]
@@ -32,7 +32,7 @@ $('document').ready(function () {
                         display: true,
                         labels: { align: 'start', font: { family: 'Open Sans' } },
                         title: {
-                            display: true, text: ['Estatísticas Gerais', 'N.º de Atletas por edição dos Jogos Olímpicos'], padding: { top: 10, bottom: 10 }, font: { size: 12, family: 'Open Sans' }
+                            display: true, text: ['General Statistics', '# Players per season'], padding: { top: 10, bottom: 10 }, font: { size: 12, family: 'Open Sans' }
                         },
                     }
                 },
@@ -40,13 +40,13 @@ $('document').ready(function () {
                 scales: {
                     x: {
                         ticks: {
-                            font: { family: 'Open Sans', color: '#800' } ,
+                            font: { family: 'Open Sans', color: '#87cefa' } ,
                         }
                     },
                     y: {
                         beginAtZero: true, 
                         ticks: {
-                            font: { family: 'Open Sans', color: '#800', size: 8, width: 200 } ,
+                            font: { family: 'Open Sans', color: '#87cefa', size: 8, width: 200 } ,
                         }
                     }
                 }
