@@ -20,7 +20,7 @@ $(document).ready(function () {
       $("[data-bs-theme]").each(function () {
         $(this).attr("data-bs-theme", $(this).attr("data-bs-theme") === "dark" ? "light" : "dark");
       });
-
+      $(".img-thumbnail").toggleClass("bg-dark"); // Apply dark mode to images
   }
   toggleDarkMode();
   $("#selector").change(function () {
