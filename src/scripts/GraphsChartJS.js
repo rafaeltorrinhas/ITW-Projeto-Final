@@ -6,12 +6,18 @@ $('document').ready(function () {
     ajaxHelper(composedUri, 'GET').done(function (stats) {
         // Interact with the data returned
         var myLabels = [];
-        var myData = [];
+        var regularSeasonData = [];
+        var playoffsData = [];
         $.each(stats, function (index, item) {
             myLabels.push(item.Season);
-            myData.push(item.Players);
+            if (item.SeasonType === "Regular Season") {
+                regularSeasonData.push(item.Players);
+                playoffsData.push(null); // Placeholder for playoffs if data is not available
+            } else if (item.SeasonType === "Playoffs") {
+                playoffsData.push(item.Players);
+                regularSeasonData.push(null); // Placeholder for regular season if data is not available
+            }
         })
-
 
         // Instantiate and draw our chart, passing in some options.
         new Chart(ctx, {
@@ -20,8 +26,14 @@ $('document').ready(function () {
             data: {
                 labels: myLabels,
                 datasets: [{
-                    label: '# Players per season',
-                    data: myData,
+                    label: 'Regular Season',
+                    data: regularSeasonData,
+                    backgroundColor: 'cornflowerblue', // Set the color for Regular Season
+                    borderWidth: 1
+                }, {
+                    label: 'Playoffs Season',
+                    data: playoffsData,
+                    backgroundColor: 'lightcoral', // Set the color for Playoffs Season
                     borderWidth: 1
                 }]
             },

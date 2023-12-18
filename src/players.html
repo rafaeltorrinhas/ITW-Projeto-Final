@@ -162,7 +162,14 @@
                     <td class="align-middle" data-bind="text: School"></td>
                     <td class="align-middle" data-bind="text: CountryName"></td>
                     <td class="align-middle" data-bind="text: PositionName"></td>
-                    <td class="align-middle" data-bind="html: '<img src=' + Photo + ' height=50px/>'" style="text-align: center;"></td>
+                    <td class="align-middle" style="text-align: center;">
+                      <!-- ko if: Photo -->
+                          <img data-bind="attr: { src: Photo, height: '50px' }" />
+                      <!-- /ko -->
+                      <!-- ko ifnot: Photo -->
+                          <img src="../images/emptyplayer.webp" height="50px" alt="Default Image" />
+                      <!-- /ko -->
+                  </td>
                     <td class="text-end">
                         <a class="btn btn-dark btn-xs" data-bind="attr: { href:'./playerDetails.html?id=' + Id }"><i class="fa fa-eye" title="Show details"></i></a>
                         <a class="btn btn-dark btn-xs"><i class="fa fa-heart" data-bind="attr:{id:'fav_'+Id}, click: function (data) {$root.favoritePlayer(Id)}" title="Add to favorites"></i></a>
