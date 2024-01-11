@@ -99,14 +99,13 @@
                 <tr>
                     <td class="align-middle" data-bind="text: Id"></td>
                     <td class="align-middle" data-bind="text: Name"></td>
-                    
                     <td class="align-middle">
                         <!-- ko if: Flag -->
-                          <img data-bind="attr: { src: Flag, height: '50px' }" />
-                      <!-- /ko -->
-                      <!-- ko ifnot: Flag -->
-                          <img src="../images/emptyplayer.webp" height="50px" alt="Default Image" />
-                      <!-- /ko -->
+                        <img data-bind="attr: { src: Flag, height: '50px' }" />
+                        <!-- /ko -->
+                        <!-- ko ifnot: Flag -->
+                        <img src="../images/emptyplayer.webp" height="50px" alt="Default Image" />
+                        <!-- /ko -->
                     </td>
                     <td class="text-end">
                         <a class="btn btn-dark btn-xs" data-bind="attr: { href:'./stateDetails.html?id=' + Id }"><i class="fa fa-eye" title="Show details"></i></a>
