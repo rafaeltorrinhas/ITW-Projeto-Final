@@ -63,12 +63,13 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="row g-2" data-bind="visible: Flag() != '' && Flag() != null">
-                    <div class="col-12 text-center">
-                        <img class="img-thumbnail" data-bind="attr:{src: Flag}">
-                        <br />
-                        <i class="fa fa-link"></i> <span class="link-dark text-decoration-none" data-bind="text: ' ' + Flag"></span>
-                    </div>
+                <div class="row g-2">
+                    <!-- ko if: Photo -->
+                    <img data-bind="attr: { src: Flag, height: '250px' }" />
+                    <!-- /ko -->
+                    <!-- ko ifnot: Photo -->
+                        <img src="../images/emptyplayer.webp" height="250px" alt="Default Image" />
+                    <!-- /ko -->
                 </div>
             </div>
         </div>

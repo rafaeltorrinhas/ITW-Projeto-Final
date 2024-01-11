@@ -71,7 +71,12 @@
         <div class="col-md-4">
             <div class="row g-2" data-bind="visible: Logo() != '' && Logo() != null">
                 <div class="col-12 text-center">
-                    <img class="img-thumbnail" data-bind="attr:{src: Logo}">
+                    <!-- ko if: Logo -->
+                    <img data-bind="attr: { src: Logo, height: '250px' }" />
+                    <!-- /ko -->
+                    <!-- ko ifnot: Logo -->
+                        <img src="../images/emptyplayer.webp" height="250px" alt="Default Image" />
+                    <!-- /ko -->
                 </div>
             </div>
         </div>

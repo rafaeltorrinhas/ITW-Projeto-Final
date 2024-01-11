@@ -113,7 +113,14 @@
                     <td class="align-middle" data-bind="text: DivisionName"></td>
                     <td class="align-middle"> <a class="nav-link" data-bind="text: StateName, attr: { href:'./stateDetails.html?id=' + StateId}"></td>
                     <td class="align-middle" data-bind="text: City"></td>
-                    <td class="align-middle" data-bind="html: '<img src=' + Logo + ' height=50px />'" style="text-align: center;"></a></td>
+                    <td class="align-middle" style="text-align: center;"></a>
+                        <!-- ko if: Logo -->
+                        <img data-bind="attr: { src: Logo, height: '50px' }" />
+                        <!-- /ko -->
+                        <!-- ko ifnot: Logo -->
+                        <img src="../images/emptyplayer.webp" height="50px" alt="Default Image" />
+                         <!-- /ko -->
+                    </td>
                     <td class="text-end">
                         <a class="btn btn-dark btn-xs" data-bind="attr: { href:'./teamDetails.html?id=' + Id + '&acronym=' + Acronym }"><i class="fa fa-eye" title="Show details"></i></a>
                         <a class="btn btn-dark btn-xs"><i class="fa fa-heart" data-bind="attr:{id:'fav_'+Id}, click: function (data) {$root.favoriteTeam(Id)}" title="Add to favorites"></i></a>
