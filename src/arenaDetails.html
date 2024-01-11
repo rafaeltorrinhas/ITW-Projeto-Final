@@ -83,10 +83,14 @@
             <!-- /ko -->
         </div>
             <div class="col-md-4">
-                <div class="row g-2" data-bind="visible: Photo() != '' && Photo() != null">
+                <div class="row g-2">
                     <div class="col-12 text-center">
-                        <img class="img-thumbnail" data-bind="attr:{src: Photo}">
-                        <br />
+                        <!-- ko if: Photo -->
+                        <img data-bind="attr: { src: Photo, height: '250px' }" />
+                        <!-- /ko -->
+                        <!-- ko ifnot: Photo -->
+                            <img src="../images/emptyplayer.webp" height="250px" alt="Default Image" />
+                        <!-- /ko -->
                     </div>
                 </div>
             </div>
