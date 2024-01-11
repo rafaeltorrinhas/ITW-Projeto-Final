@@ -1,7 +1,7 @@
 // ViewModel KnockOut
 var vm = function () {
     console.log('ViewModel initiated...');
-
+  
     //---Variáveis locais
     var self = this;
     self.baseUri = ko.observable('http://192.168.160.58/NBA/API/Seasons');
@@ -37,12 +37,12 @@ var vm = function () {
             step = self.totalPages() - 9;
         else
             step = Math.max(self.currentPage() - 5, 0);
-
+  
         for (var i = 1; i <= size; i++)
             list.push(i + step);
         return list;
     };
-
+  
     self.favoriteSeason = function (id) {
         console.log('favourite click!')
         $('#fav_'+id).addClass('text-danger')
@@ -77,16 +77,16 @@ var vm = function () {
         }
         console.log(JSON.parse(window.localStorage.getItem('favSeasons0')))
     }
-
-
+  
+  
     //--- New properties and methods for search
     self.searchTerm = ko.observable('');
-
+  
     self.search = function () {
         // Trim the search term to remove leading and trailing spaces
         var trimmedSearchTerm = self.searchTerm().trim();
     
-        // If the search term is empty after trimming, show all Seasons and return
+        // If the search term is empty after trimming, show all seasons and return
         if (!trimmedSearchTerm) {
             self.activate(1);
             return;
@@ -111,39 +111,42 @@ var vm = function () {
             self.hasNext(false); // Disable next button for search results
         });
     };
-
-
-
+  
+  
+  
     //--- Page Events
-    self.activate = function (id) {
-    console.log('CALL: getSeasons...');
-
-    // Construct the URI with or without the page parameter based on the search term
-    var composedUri = self.baseUri();
-    if (self.searchTerm()) {
-        // If a search term is specified, include it in the URI
-        composedUri += '/Search?q=' + encodeURIComponent(self.searchTerm());
-    } else {
-        // If no search term is specified, include the page parameter in the URI
-        composedUri += '?page=' + id + '&pageSize=' + self.pagesize();
-    }
-
-    // Perform an AJAX call to get records
-    ajaxHelper(composedUri, 'GET').done(function (data) {
-        console.log(data);
-        hideLoading();
-
-        // Update the records with the results
-        self.records(data.Records);
-        self.currentPage(data.CurrentPage);
-        self.hasNext(data.HasNext);
-        self.hasPrevious(data.HasPrevious);
-        self.pagesize(data.PageSize);
-        self.totalPages(data.TotalPages);
-        self.totalRecords(data.TotalRecords);
-    });
-};
-
+    self.activate = function () {
+      console.log('CALL: getSeasons...');
+      var composedUri = self.baseUri();
+      ajaxHelper(composedUri, 'GET').done(function (data) {
+          //console.log(data);
+          console.log(composedUri);
+          if (JSON.parse(window.localStorage.getItem('favSeasons0')) == null) {
+              self.records(null)
+          } else {
+              console.log('checking which Seasons were favourited')
+              var seasonsList = [];
+              var favSeasonsList = JSON.parse(window.localStorage.getItem('favSeasons0'));
+              var a = favSeasonsList.length;
+              console.log(a,favSeasonsList)
+              for (var i = 0; i < a; i++) {
+                  console.log(favSeasonsList[i])
+                  seasonsList.push(favSeasonsList[i])
+              }
+              self.records(seasonsList)
+          }
+          hideLoading();
+          a = JSON.parse(window.localStorage.getItem('favSeasons0'));
+              for (var i = 0; i < a.length; i++) {
+                  for(var j=0;j<self.records().length;j++){
+                  if(a[i].Id==self.records()[j].Id){
+                  $('#fav_'+a[i].Id).addClass('text-danger')
+                  };
+              }}
+      });
+      console.log(self.records())
+  };
+  
         //--- Internal functions
     function ajaxHelper(uri, method, data) {
         self.error(''); // Clear error message
@@ -160,12 +163,12 @@ var vm = function () {
             }
         });
     }
-
+  
     function sleep(milliseconds) {
         const start = Date.now();
         while (Date.now() - start < milliseconds);
     }
-
+  
     function showLoading() {
         $("#myModal").modal('show', {
             backdrop: 'static',
@@ -178,7 +181,7 @@ var vm = function () {
             $("#myModal").modal('hide');
         })
     }
-
+  
     function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),
             sURLVariables = sPageURL.split('&'),
@@ -187,13 +190,13 @@ var vm = function () {
         console.log("sPageURL=", sPageURL);
         for (i = 0; i < sURLVariables.length; i++) {
             sParameterName = sURLVariables[i].split('=');
-
+  
             if (sParameterName[0] === sParam) {
                 return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
             }
         }
     };
-
+  
     //--- start ....
     showLoading();
     var pg = getUrlParameter('page');
@@ -204,20 +207,20 @@ var vm = function () {
         self.activate(pg);
     }
     console.log("VM initialized!");
-};
-
-$(document).ready(function () {
+  };
+  
+  $(document).ready(function () {
     console.log("ready!");
-
+  
     var viewModel = new vm();
     ko.applyBindings(viewModel);
-
+  
     // Add event listener for the input event on the search input field
     $('#searchInput').on('input', function () {
         // Trigger the handleSearchInputChange function when the input changes
         viewModel.handleSearchInputChange();
     });
-
+  
     // Add event listener for the keypress event on the search input field
     $('#searchInput').on('keypress', function (e) {
         // Check if the pressed key is Enter (key code 13)
@@ -228,9 +231,10 @@ $(document).ready(function () {
             viewModel.search();
         }
     });
-});
-
-$(document).ajaxComplete(function (event, xhr, options) {
+  });
+  
+  $(document).ajaxComplete(function (event, xhr, options) {
     $("#myModal").modal('hide');
-})
-
+  })
+  
+  

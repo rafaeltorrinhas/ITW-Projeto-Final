@@ -43,6 +43,41 @@ var vm = function () {
         return list;
     };
 
+    self.favoriteState = function (id) {
+        console.log('favourite click!')
+        $('#fav_'+id).addClass('text-danger')
+        if (JSON.parse(window.localStorage.getItem('favStates0')) == null) {
+            console.log('no favStates in local storage, lets create it');
+            window.localStorage.setItem('favStates0', '[]');
+            var a = JSON.parse(window.localStorage.getItem('favStates0'));
+            for(var i=0;i<self.records().length;i++){
+                if(self.records()[i].Id == id){
+                b = a.concat(self.records()[i]);
+            }}
+            window.localStorage.setItem('favStates0', JSON.stringify(b));
+        } else {
+            var c = JSON.parse(window.localStorage.getItem('favStates0'))
+            for (var i = 0; i < c.length; i++) {
+                if (id == c[i].Id) {
+                    c.splice(i, 1); // remove the item at index i
+                    window.localStorage.setItem('favStates0', JSON.stringify(c)); // update the local storage
+                    console.log('State unfavourited')
+                    console.log(JSON.parse(window.localStorage.getItem('favStates0')))
+                    $('#fav_'+id).removeClass('text-danger')
+                    return false
+                }
+            }
+            var a = JSON.parse(window.localStorage.getItem('favStates0'));
+            for(var i=0;i<self.records().length;i++){
+                if(self.records()[i].Id == id){
+                b = a.concat(self.records()[i]);
+            }}
+            window.localStorage.setItem('favStates0', JSON.stringify(b));
+            console.log('State not favourited, added to favourites')
+        }
+        console.log(JSON.parse(window.localStorage.getItem('favStates0')))
+    }
+
     //--- New properties and methods for search
     self.searchTerm = ko.observable('');
 
