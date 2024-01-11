@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  // Function to toggle dark mode
   function toggleDarkMode() {
       $("body").toggleClass("bg-dark");
       $("nav").toggleClass("navbar-dark bg-dark");
@@ -9,18 +8,13 @@ $(document).ready(function () {
       $("button").toggleClass("border-light");
       $("button").toggleClass("bg-dark");
       $("button").toggleClass("text-light");
-
-      // Additional elements to include in dark mode toggle
-      $("table").toggleClass("table-dark"); // Apply dark mode to tables
+      $("table").toggleClass("table-dark"); 
       $(".btn").toggleClass("btn-dark");
-      $(".table thead").toggleClass("table-dark"); // Apply dark mode to table headers
-
-      
-      // Toggle data-bs-theme attribute for Bootstrap components
+      $(".table thead").toggleClass("table-dark"); 
       $("[data-bs-theme]").each(function () {
         $(this).attr("data-bs-theme", $(this).attr("data-bs-theme") === "dark" ? "light" : "dark");
       });
-      $(".img-thumbnail").toggleClass("bg-dark"); // Apply dark mode to images
+      $(".img-thumbnail").toggleClass("bg-dark"); 
   }
   toggleDarkMode();
   $("#selector").change(function () {
