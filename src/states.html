@@ -55,6 +55,14 @@
     <div class="container">
         <div class="border-bottom py-2 mb-2">
             <h2 data-bind="text:displayName"></h2>
+            <a
+                    class="btn btn-outline-danger"
+                    type="button"
+                     href="favoritesS.html"
+                >
+                    <i class="fa fa-heart" aria-hidden="true"></i> Favorites
+            </a>
+            
         </div>
         <!-- ko if:records().length > 0 -->
         <div class="row small">
@@ -109,7 +117,7 @@
                     </td>
                     <td class="text-end">
                         <a class="btn btn-dark btn-xs" data-bind="attr: { href:'./stateDetails.html?id=' + Id }"><i class="fa fa-eye" title="Show details"></i></a>
-                        <a class="btn btn-dark btn-xs"><i class="fa fa-heart" data-bind="attr : { 'id': 'favourite_' + Id }" title="Add to favorites"></i></a>
+                        <a class="btn btn-dark btn-xs"><i class="fa fa-heart" data-bind="attr:{id:'fav_'+Id}, click: function (data) {$root.favoriteState(Id)}" title="Add to favorites"></i></a>
                     </td>
                 </tr>
             </tbody>
