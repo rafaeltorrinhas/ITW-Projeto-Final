@@ -23,37 +23,35 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles/myCSS.css" />
- 
+
     <style>
-        
-        .carousel-item {
-          height: 640px;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-      
-        .carousel-item:nth-child(1) {
-          background-image: url("https://cdn.nba.com/manage/2023/11/USATSI_21963262-784x441.jpg");
-        }
-      
-        .carousel-item:nth-child(2) {
-          background-image: url("https://cdn.nba.com/manage/2023/11/GettyImages-1797516862.jpg");
-        }
-      
-        .carousel-item:nth-child(3) {
-          background-image: url("https://cdn.nba.com/manage/2023/11/banchero-784x441.jpg");
-        }
-      
-        .carousel-item:nth-child(4) {
-          background-image: url("https://cdn.nba.com/manage/2023/11/GettyImages-1730506370-1-scaled-e1700674286240-1568x882.jpg");
-        }
-      
-        .carousel-item:nth-child(5) {
-          background-image: url("https://cdn.nba.com/manage/2023/11/GettyImages-1790167479-1-1568x882.jpg");
-        }
-      </style>
-      
+      .carousel-item {
+        height: 640px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .carousel-item:nth-child(1) {
+        background-image: url("https://cdn.nba.com/manage/2023/11/USATSI_21963262-784x441.jpg");
+      }
+
+      .carousel-item:nth-child(2) {
+        background-image: url("https://cdn.nba.com/manage/2023/11/GettyImages-1797516862.jpg");
+      }
+
+      .carousel-item:nth-child(3) {
+        background-image: url("https://cdn.nba.com/manage/2023/11/banchero-784x441.jpg");
+      }
+
+      .carousel-item:nth-child(4) {
+        background-image: url("https://cdn.nba.com/manage/2023/11/GettyImages-1730506370-1-scaled-e1700674286240-1568x882.jpg");
+      }
+
+      .carousel-item:nth-child(5) {
+        background-image: url("https://cdn.nba.com/manage/2023/11/GettyImages-1790167479-1-1568x882.jpg");
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -99,12 +97,25 @@
                 ><i class="fa fa-bookmark text-info"></i> Seasons</a
               >
             </li>
-            <li class="nav-item"><a class="nav-link" aria-current="page" href="statistics.html"><i class="fas fa-chart-column"></i> Statistics</a></li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="statistics.html"
+                ><i class="fas fa-chart-column"></i> Statistics</a
+              >
+            </li>
           </ul>
-          <ul class="navbar-nav justify-content-end" id="bd-theme"> <button style="width:50px"><label class="custom-control-label" for="selector"><i class="fas fa-sun" aria-hidden="true"></i>  <i class="fas fa-moon    "></i>
-            </label></button>
-            <input type="checkbox" class="custom-control-input visually-hidden" id="selector">
-        </ul>
+          <ul class="navbar-nav justify-content-end" id="bd-theme">
+            <button style="width: 50px">
+              <label class="custom-control-label" for="selector"
+                ><i class="fas fa-sun" aria-hidden="true"></i>
+                <i class="fas fa-moon"></i>
+              </label>
+            </button>
+            <input
+              type="checkbox"
+              class="custom-control-input visually-hidden"
+              id="selector"
+            />
+          </ul>
         </div>
       </div>
     </nav>
@@ -124,35 +135,35 @@
             aria-label="Slide 1"
             class="active"
             aria-current="true"
-            style="border-color: rgba(248,249,250,0) !important"
+            style="border-color: rgba(248, 249, 250, 0) !important"
           ></button>
           <button
             type="button"
             data-bs-target="#myCarousel"
             data-bs-slide-to="1"
             aria-label="Slide 2"
-            style="border-color: rgba(248,249,250,0) !important"
+            style="border-color: rgba(248, 249, 250, 0) !important"
           ></button>
           <button
             type="button"
             data-bs-target="#myCarousel"
             data-bs-slide-to="2"
             aria-label="Slide 3"
-            style="border-color: rgba(248,249,250,0) !important"
+            style="border-color: rgba(248, 249, 250, 0) !important"
           ></button>
           <button
             type="button"
             data-bs-target="#myCarousel"
             data-bs-slide-to="3"
             aria-label="Slide 3"
-            style="border-color: rgba(248,249,250,0) !important"
+            style="border-color: rgba(248, 249, 250, 0) !important"
           ></button>
           <button
             type="button"
             data-bs-target="#myCarousel"
             data-bs-slide-to="4"
             aria-label="Slide 3"
-            style="border-color: rgba(248,249,250,0) !important"
+            style="border-color: rgba(248, 249, 250, 0) !important"
           ></button>
         </div>
         <div class="carousel-inner">
@@ -202,7 +213,7 @@
           type="button"
           data-bs-target="#myCarousel"
           data-bs-slide="prev"
-          style="--bs-bg-opacity: 0;"
+          style="--bs-bg-opacity: 0"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -212,48 +223,135 @@
           type="button"
           data-bs-target="#myCarousel"
           data-bs-slide="next"
-          style="--bs-bg-opacity: 0;"
+          style="--bs-bg-opacity: 0"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
       <p>
-       <img src="../images/indexgif.gif" style="width:100%;height: 200px;" alt="">
-
+        <img
+          src="../images/indexgif.gif"
+          style="width: 100%; height: 200px"
+          alt=""
+        />
       </p>
       <p></p>
-    <h1 class="center">  <i class="fa fa-basketball" aria-hidden="true" style="color: orange;"></i> <b>NBA</b> <i class="fa fa-basketball" aria-hidden="true" style="color: orange"></i></h1>
+      <h1 class="center">
+        <i
+          class="fa fa-basketball"
+          aria-hidden="true"
+          style="color: orange"
+        ></i>
+        <b>NBA</b>
+        <i
+          class="fa fa-basketball"
+          aria-hidden="true"
+          style="color: orange"
+        ></i>
+      </h1>
 
-      <p class="center">Welcome to the thrilling universe of the NBA, the basketball league that transcends borders, cultures, and generations. With every bounce of the ball, the NBA weaves stories of triumph, rivalry, and passion, captivating fans worldwide.</p>
-  
-      <h2 class="center"><i class="fas fa-medal text-primary"></i> The Greatness of the Sport <i class="fas fa-medal text-primary"></i></h2>
-      <p class="center">The NBA is not just a basketball league; it is the epicenter of sporting greatness. With iconic stars and unparalleled talent, the NBA offers intense spectacles that elevate the game to new heights. Each season is a saga filled with epic moments and plays that become etched in memory.</p>
-  
-      <h2 class="center"><i class="fa fa-star text-warning" aria-hidden="true"></i> Shining Superstars <i class="fa fa-star text-warning" aria-hidden="true"></i></h2>
-      <p class="center">Names like LeBron James, Stephen Curry, and Kevin Durant are not just players; they are superstars who transcend the sport. Their extraordinary skills and charisma captivate fans of all ages, making them global icons that influence beyond the four lines of the court.</p>
-  
-      <h2 class="center"><i class="fas fa-bolt text-danger"></i> Epic Rivalries <i class="fas fa-bolt text-danger"></i></h2>
-      <p class="center">From the legendary rivalry between the Boston Celtics and the Los Angeles Lakers to the intensity of matchups between the Chicago Bulls and the Detroit Pistons in the '90s, the NBA is the stage where rivalries turn into epic tales. Each game is more than a competition; it's a battle for pride, supremacy, and immortality in the history of sports.</p>
-  
-      <h2 class="center"><i class="fa fa-globe" aria-hidden="true" style="color: lightblue"></i> Global Stage <i class="fa fa-globe" aria-hidden="true" style="color: lightblue"></i></h2>
-      <p class="center">The NBA is truly global, connecting fans on every continent. Players from diverse nationalities compete, bringing unique playing styles and enriching the cultural tapestry of the league. The championship is more than a sports competition; it's a celebration of diversity and unity through basketball.</p>
-  
-      <h2 class="center"><i class="fas fa-tv  text-secondary "></i> Innovation and Entertainment <i class="fas fa-tv  text-secondary "></i></h2>
-      <p class="center">The NBA goes beyond the court. With events like the All-Star Weekend, the Slam Dunk Contest, and the Three-Point Contest, the league constantly redefines standards of innovation and sports entertainment. The NBA experience extends beyond the main game, offering memorable moments and entertainment for all tastes.</p>
-  
-      <p class="center">Join the thrilling journey through the NBA, where the excitement never ends and each game is a piece in the exciting puzzle of global basketball. Get ready to be engulfed by the intensity, magic, and unpredictability that only the NBA can provide. The stage is set, the lights are on – it's time to dive into the fascinating world of the National Basketball Association.</p>
+      <p class="center">
+        Welcome to the thrilling universe of the NBA, the basketball league that
+        transcends borders, cultures, and generations. With every bounce of the
+        ball, the NBA weaves stories of triumph, rivalry, and passion,
+        captivating fans worldwide.
+      </p>
+
+      <h2 class="center">
+        <i class="fas fa-medal text-primary"></i> The Greatness of the Sport
+        <i class="fas fa-medal text-primary"></i>
+      </h2>
+      <p class="center">
+        The NBA is not just a basketball league; it is the epicenter of sporting
+        greatness. With iconic stars and unparalleled talent, the NBA offers
+        intense spectacles that elevate the game to new heights. Each season is
+        a saga filled with epic moments and plays that become etched in memory.
+      </p>
+
+      <h2 class="center">
+        <i class="fa fa-star text-warning" aria-hidden="true"></i> Shining
+        Superstars <i class="fa fa-star text-warning" aria-hidden="true"></i>
+      </h2>
+      <p class="center">
+        Names like LeBron James, Stephen Curry, and Kevin Durant are not just
+        players; they are superstars who transcend the sport. Their
+        extraordinary skills and charisma captivate fans of all ages, making
+        them global icons that influence beyond the four lines of the court.
+      </p>
+
+      <h2 class="center">
+        <i class="fas fa-bolt text-danger"></i> Epic Rivalries
+        <i class="fas fa-bolt text-danger"></i>
+      </h2>
+      <p class="center">
+        From the legendary rivalry between the Boston Celtics and the Los
+        Angeles Lakers to the intensity of matchups between the Chicago Bulls
+        and the Detroit Pistons in the '90s, the NBA is the stage where
+        rivalries turn into epic tales. Each game is more than a competition;
+        it's a battle for pride, supremacy, and immortality in the history of
+        sports.
+      </p>
+
+      <h2 class="center">
+        <i class="fa fa-globe" aria-hidden="true" style="color: lightblue"></i>
+        Global Stage
+        <i class="fa fa-globe" aria-hidden="true" style="color: lightblue"></i>
+      </h2>
+      <p class="center">
+        The NBA is truly global, connecting fans on every continent. Players
+        from diverse nationalities compete, bringing unique playing styles and
+        enriching the cultural tapestry of the league. The championship is more
+        than a sports competition; it's a celebration of diversity and unity
+        through basketball.
+      </p>
+
+      <h2 class="center">
+        <i class="fas fa-tv text-secondary"></i> Innovation and Entertainment
+        <i class="fas fa-tv text-secondary"></i>
+      </h2>
+      <p class="center">
+        The NBA goes beyond the court. With events like the All-Star Weekend,
+        the Slam Dunk Contest, and the Three-Point Contest, the league
+        constantly redefines standards of innovation and sports entertainment.
+        The NBA experience extends beyond the main game, offering memorable
+        moments and entertainment for all tastes.
+      </p>
+
+      <p class="center">
+        Join the thrilling journey through the NBA, where the excitement never
+        ends and each game is a piece in the exciting puzzle of global
+        basketball. Get ready to be engulfed by the intensity, magic, and
+        unpredictability that only the NBA can provide. The stage is set, the
+        lights are on – it's time to dive into the fascinating world of the
+        National Basketball Association.
+      </p>
     </div>
     <!-- End of Working Area -->
     <nav class="navbar navbar-light bg-light fixed-bottom">
       <div class="container small">
-          <div class="navbar-text">&copy;  Introdução as Tecnologias Web - 2023/24</div>
-          <div class="navbar-text">Made with <i class="fa fa-heart text-danger"></i> for U by <a href="mailto:rafaeltorrinhas@ua.pt" class="text-decoration-none">Rafael Fernandes (118956)</a> and <a href="mailto:dinis.sousa@ua.pt" class="text-decoration-none"> Dinis Sousa (119500)</a>.</div>
-          <div class="navbar-nav">
-              <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de Aveiro</a></div>
+        <div class="navbar-text">
+          &copy; Introdução as Tecnologias Web - 2023/24
+        </div>
+        <div class="navbar-text">
+          Made with <i class="fa fa-heart text-danger"></i> for U by
+          <a href="mailto:rafaeltorrinhas@ua.pt" class="text-decoration-none"
+            >Rafael Fernandes (118956)</a
+          >
+          and
+          <a href="mailto:dinis.sousa@ua.pt" class="text-decoration-none">
+            Dinis Sousa (119500)</a
+          >.
+        </div>
+        <div class="navbar-nav">
+          <div class="nav-item text-end">
+            <a href="https://www.ua.pt" class="nav-link"
+              >Universidade de Aveiro</a
+            >
           </div>
+        </div>
       </div>
-  </nav>
+    </nav>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
